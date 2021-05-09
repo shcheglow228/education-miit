@@ -1,0 +1,13 @@
+CREATE TABLE Book
+(
+	ID INT NOT NULL
+	    CONSTRAINT PK_Book
+        PRIMARY KEY
+	,NameBook NVARCHAR (100) NOT NULL
+		CONSTRAINT UN_Book_NameBook
+        UNIQUE
+	,AuthorID INT FOREIGN KEY REFERENCES [Author] (ID)
+	,PublishingOfficeID INT FOREIGN KEY REFERENCES [PublishingOffice] (ID)
+	,SubjectsID INT FOREIGN KEY REFERENCES [Subjects] (ID)
+	,DateOfIssue DATE
+)
