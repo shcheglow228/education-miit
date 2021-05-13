@@ -1,0 +1,12 @@
+CREATE PROC INSERTAuthor (@AuthorName NVARCHAR(50))
+AS
+DECLARE @ID INT
+SELECT @ID = MAX(a.ID)
+FROM [Author] a
+IF @ID IS NULL SET @ID = 1
+ELSE SET @ID = @ID + 1
+
+BEGIN
+		INSERT INTO [Author] (ID, AuthorName)
+		VALUES (@ID, @AuthorName)
+END
