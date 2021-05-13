@@ -1,0 +1,10 @@
+CREATE TABLE [Location]
+(
+	ID INT NOT NULL
+	    CONSTRAINT PK_Location
+        PRIMARY KEY
+	,BookID INT FOREIGN KEY REFERENCES [Book] (ID)
+	,Series NVARCHAR (10) NOT NULL
+		CONSTRAINT UN_Location_Series
+        UNIQUE
+)
